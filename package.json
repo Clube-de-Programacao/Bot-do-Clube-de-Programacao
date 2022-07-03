@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "preinstall": "npm install pm2 -g",
+    "preinstall": "npm install pm2 -g && npm install discord.js && npm install @discordjs/builders @discordjs/rest discord-api-types",
     "start": "pm2-runtime start ecosystem.config.js --env production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
