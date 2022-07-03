@@ -2,7 +2,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const projectsPath = path.join(__dirname, "../projects.json");
-const projectsIds = { projectsCategory: process.env.PROJECTS_CATEGORY, mainChannel: process.env.MAIN_PROJECTS_CHANNEL };
+const projectsIds = { projectsCategory: process.env.PROJECTS_CATEGORY, mainChannel: process.env.PROJECTS_MAIN_CHANNEL };
 
 
 try {

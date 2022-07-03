@@ -11,7 +11,7 @@ let s3 = new aws.S3({
 	secretAccessKey: process.env.S3_SECRET
 });
 
-// Obtendo as config vars do Heroku
+// Obtendo as config vars da Heroku
 const token = process.env.TOKEN;
 const clientId = process.env.CLIENT_ID;
 

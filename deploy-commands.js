@@ -4,7 +4,7 @@ const path = require("node:path");
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v9");
 
-// Obtendo as config vars do Heroku
+// Obtendo as config vars da Heroku
 const clientId = process.env.CLIENT_ID;
 const token = process.env.TOKEN;
 const guildId = process.env.GUILD_ID;

@@ -1,4 +1,5 @@
-const guildId = process.env.guildId;
+const guildId = process.env.GUILD_ID;
+
 
 module.exports = {
 	name: "interactionCreate",
@@ -10,6 +11,7 @@ module.exports = {
 
 		const guild = client.guilds.cache.get(guildId);
 		const directors = guild.roles.cache.find(role => role.name === "Diretor").members;
+		
 		var directorsList = [];
 		directors.forEach(director => {directorsList.push(director.user.id)});
 
