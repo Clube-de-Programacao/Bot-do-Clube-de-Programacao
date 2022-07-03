@@ -1,12 +1,22 @@
 const fs = require("node:fs");
 const path = require("node:path");
+const aws = require("aws-sdk");
 
-const { name, version, token, clientId, guildId } = require("./config.json");
+const { name, version} = require("./config.json");
 const { Client, Intents, Collection } = require("discord.js");
 const { registerCommands } = require("./deploy-commands.js");
 
+let s3 = new aws.S3({
+	accessKeyId: process.env.S3_KEY,
+	secretAccessKey: process.env.S3_SECRET
+});
+
+// Obtendo as config vars do Heroku
+const token = process.env.TOKEN;
+const clientId = process.env.CLIENT_ID;
+
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]});
-client.name = name; client.version = version; client.id = clientId;
+client.name = name; client.version = version;
 
 registerCommands();
 

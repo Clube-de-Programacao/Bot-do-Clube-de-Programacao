@@ -1,4 +1,4 @@
-const { ownerId, guildId } = require("../config.json");
+const guildId = process.env.guildId;
 
 module.exports = {
 	name: "interactionCreate",

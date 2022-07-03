@@ -25,7 +25,7 @@ module.exports = {
 	restriction: ["DIRECTOR_ONLY"],
 
 	async execute(client, interaction) {
-		if (interaction.channelId !== projectsIds.channel) {
+		if (interaction.channelId !== projectsIds.mainChannel) {
 			await interaction.reply({ content: "Esse não é o canal para a edição de projetos. Use esse comando no \"geral\" da categoria de projetos", ephemeral: true})
 			return;
 		}

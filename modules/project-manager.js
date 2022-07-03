@@ -2,7 +2,8 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const projectsPath = path.join(__dirname, "../projects.json");
-const projectsIds = { category: "988130537254301796", channel: "988134107525554217" };
+const projectsIds = { projectsCategory: process.env.PROJECTS_CATEGORY, mainChannel: process.env.MAIN_PROJECTS_CHANNEL };
+
 
 try {
 	var projects = require(projectsPath);
