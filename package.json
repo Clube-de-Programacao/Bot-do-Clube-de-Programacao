@@ -2,7 +2,7 @@
   "name": "clube-de-programacao",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "",
   "scripts": {
     "preinstall": "npm install pm2 -g && npm install discord.js && npm install @discordjs/builders @discordjs/rest discord-api-types",
     "start": "pm2-runtime start ecosystem.config.js --env production",
