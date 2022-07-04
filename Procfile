@@ -1,1 +1,2 @@
-node: pm2 start index.js --name "Bot do Clube de Programação" --watch
+node: node index.js
+PORT: 443
