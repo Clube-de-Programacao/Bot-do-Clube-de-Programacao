@@ -15,6 +15,9 @@ let s3 = new aws.S3({
 const token = process.env.TOKEN;
 const clientId = process.env.CLIENT_ID;
 
+const Heroku = require("heroku-client");
+const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN });
+
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]});
 client.name = name; client.version = version;
 
@@ -51,3 +54,7 @@ for (const file of eventFiles) {
 client.login(token);
 
 // Permissões customizadas utilizadas em outros arquivos: DIRECTOR_ONLY
+
+module.exports = {
+	restartHerokuApp
+}

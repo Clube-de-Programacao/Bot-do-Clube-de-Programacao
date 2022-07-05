@@ -4,8 +4,8 @@
   "description": "",
   "main": "",
   "scripts": {
-    "preinstall": "npm install pm2 -g && npm install discord.js && npm install @discordjs/builders @discordjs/rest discord-api-types",
-    "start": "pm2-runtime start ecosystem.config.js --env production",
+    "preinstall": "npm install discord.js && npm install @discordjs/builders @discordjs/rest discord-api-types && npm install heroku-client --save",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,7 +14,7 @@
   "dependencies": {
     "@discordjs/builders": "^0.15.0",
     "@discordjs/rest": "^0.5.0",
-    "aws-sdk": "^2.1167.0",
-    "discord-api-types": "^0.34.0"
+    "discord-api-types": "^0.34.0",
+    "aws-sdk": "^2.1167.0"
   }
 }

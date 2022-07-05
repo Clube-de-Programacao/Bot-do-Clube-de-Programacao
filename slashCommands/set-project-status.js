@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { getProjectList, setProjectStatus, projectsIds } = require("../modules/project-manager.js");
+const { restartHerokuApp } = require("../modules/heroku-app-manager.js");
 
 const projectOptions = getProjectList();
 
@@ -37,5 +38,7 @@ module.exports = {
 		setProjectStatus(projectName, options[1].value);
 
 		await interaction.reply(`O projeto **${projectName}** foi definido como ${options[1].value ? "__ativo__" : "__arquivado__"}`);
+
+		restartHerokuApp();
 	}
 };
