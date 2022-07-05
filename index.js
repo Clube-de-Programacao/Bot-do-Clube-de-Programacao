@@ -54,7 +54,3 @@ for (const file of eventFiles) {
 client.login(token);
 
 // Permissões customizadas utilizadas em outros arquivos: DIRECTOR_ONLY
-
-module.exports = {
-	restartHerokuApp
-}
