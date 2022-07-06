@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { addProject, projectsIds, projects } = require("../modules/project-manager.js")
-const { restartHerokuApp } = require("../modules/heroku-app-manager.js");
+const { resetCommands } = require("../deploy-commands.js");
 
 
 module.exports = {

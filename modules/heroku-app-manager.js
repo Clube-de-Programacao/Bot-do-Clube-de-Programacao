@@ -1,3 +1,4 @@
+/*
 const { heroku, name } = require("../index.js");
 
 function restartHerokuApp() {
@@ -7,3 +8,4 @@ function restartHerokuApp() {
 module.exports = {
     restartHerokuApp
 }
+*/

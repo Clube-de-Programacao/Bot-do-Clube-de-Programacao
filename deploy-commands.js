@@ -34,6 +34,10 @@ function registerCommands() {
 		.catch(console.error);
 }
 
+function resetCommands(client) {
+	console.log(client.guilds.cache.get(guildId));
+}
+
 
 module.exports = {
 	registerCommands
