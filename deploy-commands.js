@@ -38,5 +38,5 @@ function registerCommands() {
 
 
 module.exports = {
-	registerCommands, resetCommands
+	registerCommands
 }
