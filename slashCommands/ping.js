@@ -13,6 +13,6 @@ module.exports = {
 		const sent = await interaction.reply({ content: "Pingando", fetchReply: true, ephemeral: true});
 		interaction.editReply(`Pong! ${sent.createdTimestamp - interaction.createdTimestamp} ms`);
 
-		registerCommands(client);
+		registerCommands();
 	}
 };
