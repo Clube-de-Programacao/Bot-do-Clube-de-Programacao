@@ -1,4 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
+const { resetCommands } = require("../deploy-commands.js");
+
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -10,5 +12,7 @@ module.exports = {
 	async execute(client, interaction) {
 		const sent = await interaction.reply({ content: "Pingando", fetchReply: true});
 		interaction.editReply(`Pong! ${sent.createdTimestamp - interaction.createdTimestamp} ms`);
+
+		resetCommands(client);
 	}
 };
