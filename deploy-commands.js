@@ -24,36 +24,16 @@ function getCommands() {
 
 		commands.push(command.data.toJSON());
 	}
+
+	return commands;
 }
 
 function registerCommands() {
-	getCommands();
+	const commands = getCommands();
 
 	rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
 		.then(() => console.log("Os slash commands da aplicação foram registrados com sucesso!"))
 		.catch(console.error);
-}
-
-function resetCommands(client) {
-	const commands = client.guilds.cache.get(guildId).commands;
-	
-	console.log(commands.cache.forEach(command => { console.log(command); }));
-	/*
-	Object.entries(commands).forEach(command => {
-		console.log(command);
-	});*/
-
-
-	/*
-	client.guilds.cache.get(guildId).commands.forEach(command => command.delete());
-	
-	
-	console.log(client.guilds.cache.get(guildId).commands);
-	
-	registerCommands();
-
-	console.log(client.guilds.cache.get(guildId).commands);
-	*/
 }
 
 
