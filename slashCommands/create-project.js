@@ -50,6 +50,6 @@ module.exports = {
 
 		await interaction.reply(`Novo projeto criado!\n\n**Nome**: ${newProject.name}\n**Descrição**: ${newProject.description}`);
 
-		restartHerokuApp();
+		resetCommands(client);
 	}
 };

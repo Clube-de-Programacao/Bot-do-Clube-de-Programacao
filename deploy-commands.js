@@ -40,5 +40,5 @@ function resetCommands(client) {
 
 
 module.exports = {
-	registerCommands
+	registerCommands, resetCommands
 }

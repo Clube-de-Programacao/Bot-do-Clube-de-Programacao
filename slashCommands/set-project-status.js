@@ -39,6 +39,6 @@ module.exports = {
 
 		await interaction.reply(`O projeto **${projectName}** foi definido como ${options[1].value ? "__ativo__" : "__arquivado__"}`);
 
-		restartHerokuApp();
+		resetCommands(client);
 	}
 };

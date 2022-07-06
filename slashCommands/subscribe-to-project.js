@@ -39,6 +39,6 @@ module.exports = {
 
 		await interaction.reply(`Inscrição feita!\n\n**${interaction.user.username}** agora está inscrito(a) no projeto **${projectName}**`);
 
-		restartHerokuApp();
+		resetCommands(client);
 	}
 };

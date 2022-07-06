@@ -33,6 +33,6 @@ module.exports = {
 		// TODO: dar a opção de desfazer a deleção do projeto
 		await interaction.reply(`O projeto **${projectName}** foi excluído do arquivo.`);
 
-		restartHerokuApp();
+		resetCommands(client);
 	}
 };
