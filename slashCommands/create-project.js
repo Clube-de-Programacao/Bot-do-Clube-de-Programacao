@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { addProject, projectsIds, projects } = require("../modules/project-manager.js")
-const { resetCommands } = require("../deploy-commands.js");
+const { registerCommands } = require("../deploy-commands.js");
 
 
 module.exports = {
@@ -50,6 +50,6 @@ module.exports = {
 
 		await interaction.reply(`Novo projeto criado!\n\n**Nome**: ${newProject.name}\n**Descrição**: ${newProject.description}`);
 
-		resetCommands(client);
+		registerCommands();
 	}
 };
