@@ -35,13 +35,15 @@ function registerCommands() {
 }
 
 function resetCommands(client) {
-	const commands = client.guilds.cache.get(guildId).commands;
+	const commands = client.guilds.cache.get(guildId).commands.cache;
 	
-	Object.entries(commands.cache).forEach(command => {
+	console.log(commands);
+	/*
+	Object.entries(commands).forEach(command => {
 		console.log(command);
-	});
+	});*/
 
-	//.forEach(command => {console.log(command)}));
+
 	/*
 	client.guilds.cache.get(guildId).commands.forEach(command => command.delete());
 	
