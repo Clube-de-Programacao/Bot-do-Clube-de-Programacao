@@ -11,11 +11,11 @@ const guildId = process.env.GUILD_ID;
 
 const rest = new REST({ version: "9" }).setToken(token);
 
-const commands = [];
 const commandsPath = path.join(__dirname, "slashCommands");
 
 
 function getCommands() {
+	const commands = [];
 	const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith(".js"));
 
 	for (const file of commandFiles) {
