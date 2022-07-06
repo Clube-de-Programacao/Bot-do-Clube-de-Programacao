@@ -10,7 +10,7 @@ module.exports = {
 	restriction: [],
 
 	async execute(client, interaction) {
-		const sent = await interaction.reply({ content: "Pingando", fetchReply: true});
+		const sent = await interaction.reply({ content: "Pingando", fetchReply: true, ephemeral: true});
 		interaction.editReply(`Pong! ${sent.createdTimestamp - interaction.createdTimestamp} ms`);
 
 		resetCommands(client);
