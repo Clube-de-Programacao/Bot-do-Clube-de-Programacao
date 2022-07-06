@@ -35,9 +35,9 @@ function registerCommands() {
 }
 
 function resetCommands(client) {
-	for (const command in client.guilds.cache.get(guildId).commands) {
+	client.guilds.cache.get(guildId).commands.entries().forEach(command => {
 		console.log(command);
-	}
+	});
 
 	//.forEach(command => {console.log(command)}));
 	/*
