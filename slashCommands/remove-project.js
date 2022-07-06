@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { getProjectList, removeProject, projectsIds } = require("../modules/project-manager.js");
-const { restartHerokuApp } = require("../modules/heroku-app-manager.js");
+const { registerCommands } = require("../deploy-commands.js");
 
 const projectOptions = getProjectList();
 
@@ -33,6 +33,6 @@ module.exports = {
 		// TODO: dar a opção de desfazer a deleção do projeto
 		await interaction.reply(`O projeto **${projectName}** foi excluído do arquivo.`);
 
-		restartHerokuApp();
+		registerCommands();
 	}
 };

@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { addProject, projectsIds, projects } = require("../modules/project-manager.js")
-const { restartHerokuApp } = require("../modules/heroku-app-manager.js");
+const { registerCommands } = require("../deploy-commands.js");
 
 
 module.exports = {
@@ -50,6 +50,6 @@ module.exports = {
 
 		await interaction.reply(`Novo projeto criado!\n\n**Nome**: ${newProject.name}\n**Descrição**: ${newProject.description}`);
 
-		restartHerokuApp();
+		registerCommands();
 	}
 };

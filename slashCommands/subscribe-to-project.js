@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { getProjectList, subscribe, projects, projectsIds } = require("../modules/project-manager.js");
-const { restartHerokuApp } = require("../modules/heroku-app-manager.js");
+const { registerCommands } = require("../deploy-commands.js");
 
 const projectOptions = getProjectList();
 
@@ -39,6 +39,6 @@ module.exports = {
 
 		await interaction.reply(`Inscrição feita!\n\n**${interaction.user.username}** agora está inscrito(a) no projeto **${projectName}**`);
 
-		restartHerokuApp();
+		registerCommands();
 	}
 };

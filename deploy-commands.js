@@ -11,11 +11,11 @@ const guildId = process.env.GUILD_ID;
 
 const rest = new REST({ version: "9" }).setToken(token);
 
-const commands = [];
 const commandsPath = path.join(__dirname, "slashCommands");
 
 
 function getCommands() {
+	const commands = [];
 	const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith(".js"));
 
 	for (const file of commandFiles) {
@@ -24,10 +24,12 @@ function getCommands() {
 
 		commands.push(command.data.toJSON());
 	}
+
+	 return commands;
 }
 
 function registerCommands() {
-	getCommands();
+	const commands = getCommands();
 
 	rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
 		.then(() => console.log("Os slash commands da aplicação foram registrados com sucesso!"))
