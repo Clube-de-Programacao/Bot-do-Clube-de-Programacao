@@ -41,8 +41,7 @@ module.exports = {
 			"participants": {}
 		};
 
-		const projects = getProjectsObject();		const projects = getProjectsObject();
-		
+		const projects = getProjectsObject();
 
 		if (Object.keys(projects).includes(newProject.name)) {
 			await interaction.reply({ content: "Ops, esse projeto já existe no arquivo. Esse comando foi invalidado", ephemeral: true})
