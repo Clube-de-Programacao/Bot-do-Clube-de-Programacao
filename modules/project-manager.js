@@ -22,6 +22,8 @@ function getProjectsObject() {
 }
 
 function updateProjects() {
+	const projects = getProjectsObject();
+
 	fs.writeFile(projectsPath, JSON.stringify(projects, null, "\t"), error => {
 		if (error) {
 			console.log(error);
