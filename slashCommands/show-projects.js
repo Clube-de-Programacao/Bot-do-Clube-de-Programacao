@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const { projects, projectsIds } = require("../modules/project-manager.js");
+const { getProjectsObject, projectsIds } = require("../modules/project-manager.js");
 
 console.log("SAMBA 2");
 
@@ -15,6 +15,8 @@ module.exports = {
 			await interaction.reply({ content: "Esse não é o canal para mostrar todos os projetos do clube. Use esse comando no \"geral\" da categoria de projetos", ephemeral: true})
 			return;
 		}
+
+		const projects = getProjectsObject();
 
 		if (Object.keys(projects).length == 0) {
 			await interaction.reply("Não há projetos salvos no arquivo de projetos do Clube de Programação.");
