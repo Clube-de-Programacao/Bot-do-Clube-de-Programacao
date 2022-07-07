@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { projects, projectsIds } = require("../modules/project-manager.js");
 
+console.log("SAMBA 2");
 
 module.exports = {
 	data: new SlashCommandBuilder()
