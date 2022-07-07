@@ -14,7 +14,7 @@ module.exports = {
 				.setName("projeto")
 				.setDescription("Nome do projeto em qual você se inscreverá")
 				.setRequired(true)
-				.addChoices(...projectOptions => { const projectOptions = getProjectList(); })
+				.addChoices(...projectOptions => projectOptions = getProjectList() )
 		),
 	
 	restriction: ["DIRECTOR_ONLY"],
