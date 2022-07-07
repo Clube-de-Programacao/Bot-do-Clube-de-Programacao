@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const { addProject, projectsIds, projects } = require("../modules/project-manager.js")
+const { addProject, projectsIds, getProjectsObject } = require("../modules/project-manager.js")
 const { registerCommands } = require("../deploy-commands.js");
 
 
@@ -40,6 +40,9 @@ module.exports = {
 			"status": true,
 			"participants": {}
 		};
+
+		const projects = getProjectsObject();		const projects = getProjectsObject();
+		
 
 		if (Object.keys(projects).includes(newProject.name)) {
 			await interaction.reply({ content: "Ops, esse projeto já existe no arquivo. Esse comando foi invalidado", ephemeral: true})
