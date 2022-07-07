@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require("@discordjs/builders");
 const { getProjectList, removeProject, projectsIds } = require("../modules/project-manager.js");
 const { registerCommands } = require("../deploy-commands.js");
 
-const projectOptions = getProjectList();
+//const projectOptions = getProjectList();
 
 
 module.exports = {
@@ -14,7 +14,7 @@ module.exports = {
 				.setName("projeto")
 				.setDescription("Nome do projeto em qual você se inscreverá")
 				.setRequired(true)
-				.addChoices(...projectOptions)
+				.addChoices(...projectOptions => { const projectOptions = getProjectList(); })
 		),
 	
 	restriction: ["DIRECTOR_ONLY"],
