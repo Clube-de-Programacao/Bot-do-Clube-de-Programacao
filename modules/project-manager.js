@@ -6,8 +6,8 @@ const projectsIds = { projectsCategory: process.env.PROJECTS_CATEGORY, mainChann
 
 
 try {
-	var projects = require(projectsPath);
 	console.log("SAMBA 1");
+	var projects = require(projectsPath);
 } catch {
 	console.log("O arquivo projects.json não existe ou está vazio. Escrevendo um arquivo com objeto JSON vazio...");
 
