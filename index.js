@@ -6,11 +6,11 @@ const path = require("node:path");
 const aws = require("aws-sdk");
 
 const { name, version} = require("./config.json");
-const { Client, Intents, Collection } = require("discord.js");
+const { Client, GatewayIntetBits, IntentBitField, Collection } = require("discord.js");
 const { registerCommands } = require("./deploy-commands.js");
 
 const PORT = process.env.PORT || 5000;
-// app.listen(PORT, () => console.log(`Listening on ${PORT}`))
+app.listen(PORT, () => console.log(`Listening on ${PORT}`))
 
 let s3 = new aws.S3({
 	accessKeyId: process.env.S3_KEY,
@@ -26,7 +26,10 @@ const clientId = process.env.CLIENT_ID;
 // const Heroku = require("heroku-client");
 // const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN });
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]});
+const botIntents = new IntentBitField();
+botIntents.add(IntentBitField.Flags.Guilds)
+
+const client = new Client({ intents: botIntents });
 client.name = name; client.version = version;
 
 registerCommands();
