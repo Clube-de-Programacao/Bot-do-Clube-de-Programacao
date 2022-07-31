@@ -4,7 +4,7 @@
   "description": "",
   "main": "",
   "scripts": {
-    "preinstall": "npm install discord.js && npm install @discordjs/builders @discordjs/rest discord-api-types && npm install heroku-client --save",
+    "preinstall": "npm install express --save && npm install discord.js && npm install @discordjs/builders @discordjs/rest discord-api-types",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,7 +14,11 @@
   "dependencies": {
     "@discordjs/builders": "^0.15.0",
     "@discordjs/rest": "^0.5.0",
+    "aws-sdk": "^2.1167.0",
     "discord-api-types": "^0.34.0",
-    "aws-sdk": "^2.1167.0"
+    "express": "^4.18.1"
+  },
+  "engines": {
+    "node": "16.15"
   }
 }

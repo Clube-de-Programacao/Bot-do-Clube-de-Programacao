@@ -1,3 +1,6 @@
+const express = require("express");
+const app = express();
+
 const fs = require("node:fs");
 const path = require("node:path");
 const aws = require("aws-sdk");
@@ -5,6 +8,12 @@ const aws = require("aws-sdk");
 const { name, version} = require("./config.json");
 const { Client, Intents, Collection } = require("discord.js");
 const { registerCommands } = require("./deploy-commands.js");
+
+// package.json
+// && npm install heroku-client --save
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Listening on ${PORT}`))
 
 let s3 = new aws.S3({
 	accessKeyId: process.env.S3_KEY,
