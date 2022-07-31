@@ -21,8 +21,10 @@ let s3 = new aws.S3({
 const token = process.env.TOKEN;
 const clientId = process.env.CLIENT_ID;
 
-const Heroku = require("heroku-client");
-const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN });
+// Tirado de "preinstall" em package.json: npm install heroku-client --save && 
+
+// const Heroku = require("heroku-client");
+// const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN });
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]});
 client.name = name; client.version = version;
