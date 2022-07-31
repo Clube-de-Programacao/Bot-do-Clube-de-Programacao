@@ -6,7 +6,7 @@ const path = require("node:path");
 const aws = require("aws-sdk");
 
 const { name, version} = require("./config.json");
-const { Client, IntentBitField, Collection } = require("discord.js");
+const { Client, IntentsBitField, Collection } = require("discord.js");
 const { registerCommands } = require("./deploy-commands.js");
 
 const PORT = process.env.PORT || 5000;
@@ -26,8 +26,8 @@ const clientId = process.env.CLIENT_ID;
 // const Heroku = require("heroku-client");
 // const heroku = new Heroku({ token: process.env.HEROKU_API_TOKEN });
 
-const botIntents = new IntentBitField();
-botIntents.add(IntentBitField.Flags.Guilds)
+const botIntents = new IntentsBitField();
+botIntents.add(IntentsBitField.Flags.Guilds)
 
 const client = new Client({ intents: botIntents });
 client.name = name; client.version = version;
