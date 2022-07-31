@@ -6,7 +6,7 @@ const path = require("node:path");
 const aws = require("aws-sdk");
 
 const { name, version} = require("./config.json");
-const { Client, GatewayIntetBits, IntentBitField, Collection } = require("discord.js");
+const { Client, IntentBitField, Collection } = require("discord.js");
 const { registerCommands } = require("./deploy-commands.js");
 
 const PORT = process.env.PORT || 5000;
