@@ -4,7 +4,7 @@
   "description": "",
   "main": "",
   "scripts": {
-    "preinstall": "npm install express --save && npm install discord.js && npm install @discordjs/builders @discordjs/rest discord-api-types",
+    "preinstall": "npm install heroku-client --save && npm install express --save && npm install discord.js && npm install @discordjs/builders @discordjs/rest discord-api-types",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
