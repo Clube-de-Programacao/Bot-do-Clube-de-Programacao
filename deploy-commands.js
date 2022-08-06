@@ -25,7 +25,7 @@ function getCommands() {
 		commands.push(command.data.toJSON());
 	}
 
-	 return commands;
+	return commands;
 }
 
 function registerCommands() {

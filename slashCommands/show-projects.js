@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const { projects, projectsIds } = require("../modules/project-manager.js");
+const { getProjectsObject, projectsIds } = require("../modules/project-manager.js");
 
 
 module.exports = {
@@ -10,6 +10,8 @@ module.exports = {
 	restriction: [],
 
 	async execute(client, interaction) {
+		const projects = getProjectsObject();
+
 		if (interaction.channelId !== projectsIds.mainChannel) {
 			await interaction.reply({ content: "Esse não é o canal para mostrar todos os projetos do clube. Use esse comando no \"geral\" da categoria de projetos", ephemeral: true})
 			return;

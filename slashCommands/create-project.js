@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const { addProject, projectsIds, projects } = require("../modules/project-manager.js")
+const { getProjectsObject, addProject, projectsIds } = require("../modules/project-manager.js")
 const { registerCommands } = require("../deploy-commands.js");
 
 
@@ -26,6 +26,8 @@ module.exports = {
 	restriction: ["DIRECTOR_ONLY"],
 
 	async execute(client, interaction) {
+		const projects = getProjectsObject();
+		
 		if (interaction.channelId !== projectsIds.mainChannel) {
 			await interaction.reply({ content: "Esse não é o canal para a criação de projetos. Use esse comando no \"geral\" da categoria de projetos", ephemeral: true})
 			return;

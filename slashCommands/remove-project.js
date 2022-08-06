@@ -14,9 +14,9 @@ module.exports = {
 				.setName("projeto")
 				.setDescription("Nome do projeto em qual você se inscreverá")
 				.setRequired(true)
-				.addChoices(...projectOptions)
+				.addChoices(...getProjectList())
 		),
-	
+
 	restriction: ["DIRECTOR_ONLY"],
 
 	async execute(client, interaction) {
@@ -27,7 +27,7 @@ module.exports = {
 
 		const projectIndex = projectOptions.findIndex(p => p.value === interaction.options._hoistedOptions[0].value);
 		const projectName = projectOptions[projectIndex]["name"];
-		
+
 		removeProject(projectName);
 
 		// TODO: dar a opção de desfazer a deleção do projeto

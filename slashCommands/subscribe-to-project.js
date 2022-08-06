@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const { getProjectList, subscribe, projects, projectsIds } = require("../modules/project-manager.js");
+const { getProjectsObject, getProjectList, subscribe, projectsIds } = require("../modules/project-manager.js");
 const { registerCommands } = require("../deploy-commands.js");
 
 const projectOptions = getProjectList();
@@ -20,6 +20,8 @@ module.exports = {
 	restriction: [],
 
 	async execute(client, interaction) {
+		const projects = getProjectList();
+
 		if (interaction.channelId !== projectsIds.mainChannel) {
 			await interaction.reply({ content: "Esse não é o canal para a inscrição em um projeto. Use esse comando no \"geral\" da categoria de projetos", ephemeral: true})
 			return;
