@@ -1,3 +1,4 @@
+const { ChannelType } = require("discord.js");
 const fs = require("node:fs");
 const path = require("node:path");
 
@@ -42,7 +43,13 @@ module.exports = {
 		interaction.guild.roles.create({ name: newProject.name });
 
 		await interaction.guild.channels.cache.get(interaction.channelId).parent
-		.createChannel(newProject.name, { type: "GUILD_TEXT", topic: newProject.description })
+		.create(
+			{
+				"name" : newProject.name,
+				"type" : ChannelType.GuildText,
+				"topic" : newProject.description
+			}
+		)
 		.then(channel => {
 				channel.send(`Aqui começa o canal do projeto **${newProject.name}**\n\n**Descrição:** ${newProject.description}`);
 				
