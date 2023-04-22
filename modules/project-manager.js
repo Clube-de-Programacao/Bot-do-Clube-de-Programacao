@@ -10,11 +10,11 @@ function getProjectsObject() {
 		var projects = require(projectsPath);
 	} catch {
 		console.log("O arquivo projects.json não existe ou está vazio. Escrevendo um arquivo com objeto JSON vazio...");
-	
+
 		fs.writeFileSync(projectsPath, "{}", error => {
 			if (error) console.log(error);
 		});
-	
+
 		var projects = require(projectsPath);
 	}
 
@@ -37,8 +37,6 @@ function updateProjects() {
 module.exports = {
 	async addProject(client, newProject, interaction) {
 		const projects = getProjectsObject();
-		
-		projects[newProject.name] = newProject;
 
 		interaction.guild.roles.create({ name: newProject.name });
 
@@ -52,23 +50,27 @@ module.exports = {
 		)
 		.then(channel => {
 				channel.send(`Aqui começa o canal do projeto **${newProject.name}**\n\n**Descrição:** ${newProject.description}`);
-				
+
 				const roleId = interaction.guild.roles.cache.find(role => role.name === newProject.name).id;
 
 				channel.permissionOverwrites.edit(interaction.guild.roles.everyone, { "SEND_MESSAGES": false });
 				channel.permissionOverwrites.edit(roleId, { "SEND_MESSAGES": true });
+
+				newProject["channelId"] = channel.id;
 			}
 		);
+
+		projects[Object.keys(projects).length] = newProject;
 
 		updateProjects();
 	},
 
-	getProjectList() {
+	getProjectNameList() {
 		const projects = getProjectsObject();
 
 		var projectOptions = [];
 		var projectKeys = Object.keys(projects);
-		
+
 		for (var option in projectKeys) {
 			var projectName = projectKeys[option];
 			projectOptions.push({ name: projectName, value: option });
@@ -76,22 +78,25 @@ module.exports = {
 
 		return projectOptions;
 	},
-	
+
 	subscribe(projectName, interaction) {
 		const projects = getProjectsObject();
 
 		projects[projectName]["participants"][interaction.user.username] = interaction.user.id;
-		
+
 		const role = interaction.guild.roles.cache.find(role => role.name === projectName);
 		interaction.member.roles.add(role);
 
 		updateProjects()
 	},
 
-	setProjectStatus(projectName, status) {
+	updateProjectInfo(projectName, newInfo) {
 		const projects = getProjectsObject();
 
-		projects[projectName].status = status;
+		if (newInfo.name) projects[projectName].name = newInfo.name;
+		if (newInfo.description) projects[projectName].description = newInfo.description;
+		if (newInfo.representative) projects[projectName].representative = newInfo.representative;
+		if (newInfo.status) projects[projectName].status = newInfo.status;
 
 		updateProjects();
 	},
@@ -102,6 +107,6 @@ module.exports = {
 		delete projects[projectName];
 		updateProjects();
 	},
-	
+
 	getProjectsObject, projectsIds
 };

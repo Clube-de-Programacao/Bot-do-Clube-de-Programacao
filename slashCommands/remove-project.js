@@ -1,8 +1,8 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const { getProjectList, removeProject, projectsIds } = require("../modules/project-manager.js");
+const { getProjectNameList, removeProject, projectsIds } = require("../modules/project-manager.js");
 const { registerCommands } = require("../deploy-commands.js");
 
-const projectOptions = getProjectList();
+const projectOptions = getProjectNameList();
 
 
 module.exports = {

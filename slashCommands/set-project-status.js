@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
-const { getProjectList, setProjectStatus, projectsIds } = require("../modules/project-manager.js");
+const { getProjectNameList, setProjectStatus, projectsIds } = require("../modules/project-manager.js");
 const { registerCommands } = require("../deploy-commands.js");
 
 const projectOptions = getProjectList();
